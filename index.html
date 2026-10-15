@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORBITCOM AI // Ultimate Command Center</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/satellite.js/4.0.0/satellite.min.js"></script>
+</head>
+<body>
+
+    <header class="top-nav">
+        <div class="nav-left">
+            <button class="menu-toggle" id="menuToggleBtn" aria-label="Toggle Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="brand">🛰️ ORBITCOM <span class="badge">AI OMEGA</span></div>
+        </div>
+        <div class="nav-stats">
+            <span>UPLINK: <b id="systemStatus" style="color: #38bdf8;">SECURE</b></span>
+        </div>
+    </header>
+
+    <div class="app-container">
+        <!-- Sidebar Navigation Menu -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">COMMAND MODULES</div>
+            <button class="nav-item active" id="navTracking">
+                <span>🛰️</span> Live Satellite Tracker
+            </button>
+            <button class="nav-item" id="navProcessing">
+                <span>🧪</span> Pollution & Data Processing
+            </button>
+            <button class="nav-item" id="navAiConsole">
+                <span>🤖</span> AI Intelligence & Visual Core
+            </button>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+
+            <!-- VIEW 1: LIVE SATELLITE TRACKER -->
+            <section id="trackingView" class="view-panel active">
+                <div class="panel-grid">
+                    <div class="control-box">
+                        <h2>Select Satellite</h2>
+                        <div class="btn-group">
+                            <button class="sub-btn active" id="btnIss">ISS (Space Station)</button>
+                            <button class="sub-btn" id="btnNoaa">NOAA 18 (Weather)</button>
+                            <button class="sub-btn" id="btnHubble">Hubble Telescope</button>
+                        </div>
+                        <div class="telemetry-box">
+                            <h3>Telemetry Telecast</h3>
+                            <div class="t-row"><span>Target:</span> <strong id="satName">ISS (ZARYA)</strong></div>
+                            <div class="t-row"><span>Latitude:</span> <strong id="satLat">0.00°</strong></div>
+                            <div class="t-row"><span>Longitude:</span> <strong id="satLng">0.00°</strong></div>
+                            <div class="t-row"><span>Altitude:</span> <strong id="satAlt">0.00 km</strong></div>
+                            <div class="t-row"><span>Velocity:</span> <strong id="satVel">0.00 km/s</strong></div>
+                        </div>
+                    </div>
+                    <div class="radar-box">
+                        <div class="grid-overlay"></div>
+                        <div class="target-blip" id="targetBlip">
+                            <div class="blip-pulse"></div>
+                        </div>
+                        <div class="radar-label">TACTICAL MAP GRID // <span id="activeRadarLabel">ISS</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VIEW 2: POLLUTION & DATA PROCESSING -->
+            <section id="processingView" class="view-panel">
+                <div class="processing-layout">
+                    <h2>Atmospheric & Pollution Analysis Pipeline</h2>
+                    <p class="section-desc">Real-time processing node evaluating atmospheric aerosol optical density and greenhouse gas signatures.</p>
+                    
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <h4>NO2 Concentration</h4>
+                            <div class="metric-value">42.8 µg/m³</div>
+                            <span class="metric-status optimal">Normal Threshold</span>
+                        </div>
+                        <div class="metric-card">
+                            <h4>Aerosol Index</h4>
+                            <div class="metric-value">1.14 AI</div>
+                            <span class="metric-status warning">Elevated Activity</span>
+                        </div>
+                        <div class="metric-card">
+                            <h4>CO2 Column Density</h4>
+                            <div class="metric-value">421.5 ppm</div>
+                            <span class="metric-status alert">Global Baseline</span>
+                        </div>
+                    </div>
+
+                    <div class="console-box">
+                        <div class="console-header"><span>PROCESSING STREAM LOGS</span><button id="runSweepBtn">Run Diagnostic Sweep</button></div>
+                        <div class="console-body" id="consoleLogs">
+                            [System] Initializing sensor calibration matrices...<br>
+                            [Processor] Connected to orbital telemetry stream...<br>
+                            [Ready] Awaiting user execution command.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VIEW 3: AI ASSISTANT CONSOLE -->
+            <section id="aiConsoleView" class="view-panel">
+                <div class="processing-layout">
+                    <h2>AI Intelligence & Pictorial Command Core</h2>
+                    <p class="section-desc">Ask questions about regions ("hows india"), locations ("VRS & VJS School"), or spacecraft ("What is INSAT?") for rich visual briefings.</p>
+                    
+                    <div class="ai-chat-container">
+                        <div class="ai-chat-log" id="aiChatLog">
+                            <div class="ai-msg system">
+                                <div class="ai-bubble"><strong>[AI Core]:</strong> Omega intelligence online. Type anything below to generate dynamic graphical cards, briefings, and telemetry targets.</div>
+                            </div>
+                        </div>
+                        <div class="ai-input-group">
+                            <input type="text" id="aiUserInput" placeholder="Ask AI (e.g., 'What is INSAT?', 'hows india', 'VRS & VJS School')...">
+                            <button id="sendAiBtn">Transmit Query</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
